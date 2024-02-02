@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+
+  <remote name="clo_vendor_waipio"
+          fetch="https://git.codelinaro.org/clo/la/"
+          sync-c="true"
+          sync-tags="false"
+          revision="refs/tags/LA.VENDOR.1.0.r1-24600-WAIPIO.QSSI14.0" />
+
+  <remote name="clo_kernel_waipio"
+          fetch="https://git.codelinaro.org/clo/la/"
+          sync-c="true"
+          sync-tags="false"
+          review="codelinaro.org"
+          revision="refs/tags/KERNEL.PLATFORM.1.0.r1-17100-kernel.0" />
+
+  <project name="kernel/build" path="kernel_platform/build" revision="refs/heads/kernel.lnx.5.10.r1-rel"/>
+  <project groups="qki" name="kernel/common" path="kernel_platform/common" revision="refs/heads/ks-kernel.lnx.1.0.r1-rel"/>
+  <project name="aospa-pong/msm-5.10" path="kernel_platform/msm-kernel" remote="github" revision="uvite">
+    <linkfile dest="kernel_platform/common/build.config.msm.waipio" src="build.config.msm.waipio"/>
+    <linkfile dest="kernel_platform/common/build.config.msm.waipio.tuivm" src="build.config.msm.waipio.tuivm"/>
+    <linkfile dest="kernel_platform/common/build.config.msm.lahaina" src="build.config.msm.lahaina"/>
+  </project>
+  <project clone-depth="1" name="kernel/prebuilts/build-tools" path="kernel_platform/prebuilts/kernel-build-tools" revision="refs/heads/ks-kernel.lnx.1.0.r1-rel"/>
+  <project name="kernel_platform/external/dtc" revision="refs/heads/kernel.build.lnx.1.0.r1-rel"/>
+  <project name="kernel_platform/kernel/prebuilts/mainline/arm64" revision="refs/heads/kernel.lnx.5.10.r1-rel"/>
+  <project clone-depth="1" name="kernel_platform/prebuilts/build-tools" revision="refs/heads/ks-kernel.lnx.1.0.r1-rel"/>
+  <project name="kernel_platform/system/tools/mkbootimg" path="kernel_platform/tools/mkbootimg" revision="refs/heads/ks-kernel.lnx.1.0.r1-rel"/>
+  <project clone-depth="1" name="kernelplatform/prebuilts-master/clang/host/linux-x86" path="kernel_platform/prebuilts-master/clang/host/linux-x86" revision="refs/heads/ks-kernel.lnx.1.0.r1-rel"/>
+  <project clone-depth="1" name="kernelplatform/prebuilts/gcc/linux-x86/host/x86_64-linux-glibc2.17-4.8" path="kernel_platform/prebuilts/gcc/linux-x86/host/x86_64-linux-glibc2.17-4.8" revision="refs/heads/ks-kernel.lnx.1.0.r1-rel"/>
+
+  <!-- QCOM DTS-->
+  <project name="aospa-pong/kernel_msm-nothing-extra_devicetree" path="vendor/qcom/proprietary/devicetree" remote="github" revision="uvite-nothing-phone2" />
+  <project name="aospa-pong/vendor_qcom_proprietary_audio-devicetree" path="vendor/qcom/proprietary/audio-devicetree" remote="github" revision="uvite-nothing-phone2" />
+  <project name="aospa-pong/vendor_qcom_proprietary_camera-devicetree" path="vendor/qcom/proprietary/camera-devicetree" remote="github" revision="uvite-nothing-phone2" />
+  <project name="aospa-pong/vendor_qcom_proprietary_cvp-devicetree" path="vendor/qcom/proprietary/cvp-devicetree" remote="github" revision="uvite-nothing-phone2" />
+  <project name="aospa-pong/vendor_qcom_proprietary_display-devicetree" path="vendor/qcom/proprietary/display-devicetree" remote="github" revision="uvite-nothing-phone2" />
+  <project name="aospa-pong/vendor_qcom_proprietary_eva-devicetree" path="vendor/qcom/proprietary/eva-devicetree" remote="github" revision="uvite-nothing-phone2" />
+  <project name="aospa-pong/vendor_qcom_proprietary_mmrm-devicetree" path="vendor/qcom/proprietary/mmrm-devicetree" remote="github" revision="uvite-nothing-phone2" />
+  <project name="aospa-pong/vendor_qcom_proprietary_video-devicetree" path="vendor/qcom/proprietary/video-devicetree" remote="github" revision="uvite-nothing-phone2" />
+
+  <!-- QCOM OSS MODULES-->
+  <project name="aospa-pong/android_vendor_qcom_opensource_audio-kernel-ar" path="vendor/qcom/opensource/audio-kernel" remote="github" revision="uvite" />
+  <project name="aospa-pong/android_vendor_qcom_opensource_camera-kernel" path="vendor/qcom/opensource/camera-kernel" remote="github" revision="uvite" />
+  <project name="platform/vendor/opensource/cvp-kernel" path="vendor/qcom/opensource/cvp-kernel" remote="clo_vendor_waipio" />
+  <project name="platform/vendor/opensource/dataipa" path="vendor/qcom/opensource/dataipa" remote="clo_vendor_waipio" />
+  <project name="aospa-pong/android_vendor_qcom_opensource_display-drivers" path="vendor/qcom/opensource/display-drivers" remote="github" revision="uvite" />
+  <project name="platform/vendor/opensource/mmrm-driver" path="vendor/qcom/opensource/mmrm-driver" remote="clo-la" revision="ce5c3a5859c1edea355144a7749e8b3ebe982abe" upstream="refs/heads/mmrm-kernel-waipio.lnx.1.0.r2-rel" />
+  <project name="platform/vendor/opensource/mmrm-driver-test" path="vendor/qcom/opensource/mmrm-driver/test" remote="clo-la" revision="5e5e099689db214795b00771e7715b7dbdc71b3c" upstream="refs/heads/mmrm-kernel-waipio.lnx.1.0.r2-rel" />
+  <project name="platform/vendor/opensource/eva-kernel" path="vendor/qcom/opensource/eva-kernel" remote="clo_vendor_waipio" />
+  <project name="aospa-pong/android_vendor_qcom_opensource_video-driver" path="vendor/qcom/opensource/video-driver" remote="github" revision="uvite" />
+  <project name="platform/vendor/opensource/touch-drivers" path="vendor/qcom/opensource/touch-drivers" remote="clo_vendor_waipio" />
+  <project name="platform/vendor/qcom-opensource/wlan/fw-api" path="vendor/qcom/opensource/wlan/fw-api" remote="clo_vendor_waipio" />
+  <project name="platform/vendor/qcom-opensource/wlan/qca-wifi-host-cmn" path="vendor/qcom/opensource/wlan/qca-wifi-host-cmn" remote="clo_vendor_waipio" />
+  <project name="aospa-pong/android_vendor_qcom_opensource_wlan_qcacld-3.0" path="vendor/qcom/opensource/wlan/qcacld-3.0" remote="github" revision="uvite" />
+  <project name="platform/vendor/qcom/opensource/datarmnet" path="vendor/qcom/opensource/datarmnet" remote="clo_vendor_waipio" />
+  <project name="platform/vendor/qcom/opensource/datarmnet-ext" path="vendor/qcom/opensource/datarmnet-ext" remote="clo_vendor_waipio" />
+
+</manifest>
